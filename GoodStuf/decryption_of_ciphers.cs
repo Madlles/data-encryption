@@ -12,9 +12,9 @@ using static GoodStuf.EffectBlur;
 
 namespace GoodStuf
 {
-    public partial class OwnEncryption : Form
+    public partial class decryption_of_ciphers : Form
     {
-        public OwnEncryption()
+        public decryption_of_ciphers()
         {
             InitializeComponent();
             EnableBlur();

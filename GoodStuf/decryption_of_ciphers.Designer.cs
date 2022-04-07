@@ -1,6 +1,6 @@
 ﻿namespace GoodStuf
 {
-    partial class OwnEncryption
+    partial class decryption_of_ciphers
     {
         /// <summary>
         /// Required designer variable.

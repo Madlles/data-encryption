@@ -173,7 +173,7 @@ namespace GoodStuf
 
         async private void bunifuButton3_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new OwnEncryption());
+            OpenChildForm(new decryption_of_ciphers());
             label1.Visible = false;
             label1.Text = bunifuButton3.Text;
             await Task.Delay(1);

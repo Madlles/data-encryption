@@ -55,6 +55,10 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>C:\Users\mf288\OneDrive\Рабочий стол\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>C:\Users\mf288\OneDrive\Рабочий стол\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Siticone.UI">
       <HintPath>C:\Users\mf288\OneDrive\Рабочий стол\Siticone.UI.dll</HintPath>
     </Reference>

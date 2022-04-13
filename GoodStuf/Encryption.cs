@@ -37,17 +37,17 @@ namespace GoodStuf
             label1.Visible = false;
             siticoneRoundedComboBox1.Visible = false;
             
-            await Task.Delay(150);
+            await Task.Delay(50);
             bunifuTransition1.ShowSync(siticoneGradientButton1);
-            await Task.Delay(150);
+            await Task.Delay(50);
             bunifuTransition1.ShowSync(siticoneGradientButton2);
-            await Task.Delay(150);
+            await Task.Delay(50);
             bunifuTransition1.ShowSync(siticoneGradientButton3);
-            await Task.Delay(150);
+            await Task.Delay(50);
             bunifuTransition1.ShowSync(richTextBox1);
-            await Task.Delay(150);
+            await Task.Delay(50);
             bunifuTransition1.ShowSync(label1);
-            await Task.Delay(150);
+            await Task.Delay(50);
             bunifuTransition1.ShowSync(siticoneRoundedComboBox1);
 
 
@@ -116,8 +116,38 @@ namespace GoodStuf
             {
                 richTextBox1.LoadFile(openFile1.FileName, RichTextBoxStreamType.PlainText);
             }
-            
-            
+
+
+        }
+
+        char[] characters = new char[] { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
+                                                'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С',
+                                                'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ',
+                                                'Э', 'Ю', 'Я', ' ', '1', '2', '3', '4', '5', '6', '7',
+                                                '8', '9', '0' };
+        private string Encode(string input, string keyword)
+        {
+            input = input.ToUpper();
+            keyword = keyword.ToUpper();
+            int N = characters.Length;
+            string result = "";
+
+            int keyword_index = 0;
+
+            foreach (char symbol in input)
+            {
+                int c = (Array.IndexOf(characters, symbol) +
+                    Array.IndexOf(characters, keyword[keyword_index])) % N;
+
+                result += characters[c];
+
+                keyword_index++;
+
+                if ((keyword_index + 1) == keyword.Length)
+                    keyword_index = 0;
+            }
+
+            return result;
         }
 
         private void siticoneGradientButton1_Click(object sender, EventArgs e)
@@ -134,9 +164,9 @@ namespace GoodStuf
                     }
                     richTextBox1.Text = result;
                 }
-                else if (siticoneRoundedComboBox1.Text == "Гронсфельд")
+                else if (siticoneRoundedComboBox1.Text == "Гронсфельд(англ)")
                 {
-                    string alphabet = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ";
+                    string alphabet = "abcdefghijklmnopqrstuvwxyz";
                     int[] keys = bunifuTextBox1.Text.Select(ch => (int)Char.GetNumericValue(ch)).ToArray();
                     string s = richTextBox1.Text;
                     StringBuilder sb = new StringBuilder();
@@ -148,73 +178,21 @@ namespace GoodStuf
                 }
                 else if (siticoneRoundedComboBox1.Text == "Вижинер")
                 {
-                    // Cчитываем из файла сообщения
-                    string m = richTextBox1.Text;
-                    string k = bunifuTextBox1.Text;
-
-                    int nomer; // Номер в алфавите
-                    int d; // Смещение
-                    string s; //Результат
-                    int j, f; // Переменная для циклов
-                    int t = 0; // Преременная для нумерации символов ключа.
-
-                    char[] massage = m.ToCharArray(); // Превращаем сообщение в массив символов.
-                    char[] key = k.ToCharArray(); // Превращаем ключ в массив символов.
-
-                    char[] alfavit = { 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я' };
-
-                    // Перебираем каждый символ сообщения
-                    for (int i = 0; i < massage.Length; i++)
-                    {
-                        // Ищем индекс буквы
-                        for (j = 0; j < alfavit.Length; j++)
-                        {
-                            if (massage[i] == alfavit[j])
-                            {
-                                break;
-                            }
-                        }
-
-                        if (j != 33) // Если j равно 33, значит символ не из алфавита
-                        {
-                            nomer = j; // Индекс буквы
-
-                            // Ключ закончился - начинаем сначала.
-                            if (t > key.Length - 1) { t = 0; }
-
-                            // Ищем индекс буквы ключа
-                            for (f = 0; f < alfavit.Length; f++)
-                            {
-                                if (key[t] == alfavit[f])
-                                {
-                                    break;
-                                }
-                            }
-
-                            t++;
-
-                            if (f != 33) // Если f равно 33, значит символ не из алфавита
-                            {
-                                d = nomer + f;
-                            }
-                            else
-                            {
-                                d = nomer;
-                            }
-
-                            // Проверяем, чтобы не вышли за пределы алфавита
-                            if (d > 32)
-                            {
-                                d = d - 33;
-                            }
-
-                            massage[i] = alfavit[d]; // Меняем букву
-                        }
-                    }
-
-                    s = new string(massage); // Собираем символы обратно в строку.
-                    richTextBox1.Text = s; // Выводим результат.
+                    richTextBox1.Text = Encode(richTextBox1.Text, bunifuTextBox1.Text);
                 }
+                else if (siticoneRoundedComboBox1.Text == "Гронсфельд(русс)")
+                {
+                    string alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+                    int[] keys = bunifuTextBox1.Text.Select(ch => (int)Char.GetNumericValue(ch)).ToArray();
+                    string s = richTextBox1.Text;
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < s.Length; i++)
+                    {
+                        sb.Append(alphabet[(alphabet.IndexOf(s[i]) + keys[i % keys.Length]) % alphabet.Length]);
+                    }
+                    richTextBox1.Text = sb.ToString();
+                }
+
                 
                   
             }
@@ -233,7 +211,7 @@ namespace GoodStuf
                 bunifuTransition1.ShowSync(bunifuTextBox1);
                 bunifuTextBox1.PlaceholderText = "Величина сдвига";
             }
-            else if (siticoneRoundedComboBox1.Text == "Гронсфельд")
+            else if (siticoneRoundedComboBox1.Text == "Гронсфельд(англ)")
             {
                 bunifuTextBox1.Visible = false;
                 await Task.Delay(150);
@@ -241,6 +219,13 @@ namespace GoodStuf
                 bunifuTextBox1.PlaceholderText = "Ключ";
             }
             else if (siticoneRoundedComboBox1.Text == "Вижинер")
+            {
+                bunifuTextBox1.Visible = false;
+                await Task.Delay(150);
+                bunifuTransition1.ShowSync(bunifuTextBox1);
+                bunifuTextBox1.PlaceholderText = "Ключ";
+            }
+            else if (siticoneRoundedComboBox1.Text == "Гронсфельд(русс)")
             {
                 bunifuTextBox1.Visible = false;
                 await Task.Delay(150);

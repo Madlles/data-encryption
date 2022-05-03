@@ -33,6 +33,8 @@ namespace GoodStuf
             bunifuButton2.Visible = false;
             bunifuButton3.Visible = false;
             bunifuButton4.Visible = false;
+            bunifuButton5.Visible = false;
+            bunifuButton6.Visible = false;
             for (Opacity = 0; Opacity < 1; Opacity += 0.03)
                 await Task.Delay(1);
             
@@ -45,7 +47,10 @@ namespace GoodStuf
             siticoneTransition2.Show(bunifuButton2);
             siticoneTransition2.Show(bunifuButton3);
             siticoneTransition2.Show(bunifuButton4);
-            
+            siticoneTransition2.Show(bunifuButton5);
+            siticoneTransition2.Show(bunifuButton6);
+
+
 
 
         }
@@ -187,6 +192,18 @@ namespace GoodStuf
             label1.Text = bunifuButton4.Text;
             await Task.Delay(1);
             siticoneTransition3.Show(label1);
+        }
+
+        private void bunifuButton6_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Help());
+        }
+
+        private void bunifuButton5_Click(object sender, EventArgs e)
+        {
+            //big MessageBox
+            MessageBox.Show("BETA TEST", "beta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            OpenChildForm(new OwnEncryption());
         }
     }
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using static GoodStuf.EffectBlur;
+using System.IO;
 
 namespace GoodStuf
 {
@@ -154,6 +155,7 @@ namespace GoodStuf
         {
             try
             {
+                
                 if (siticoneRoundedComboBox1.Text == "Цезарь")
                 {
                     string text = richTextBox1.Text;
@@ -193,8 +195,7 @@ namespace GoodStuf
                     richTextBox1.Text = sb.ToString();
                 }
 
-                
-                  
+
             }
             catch
             {

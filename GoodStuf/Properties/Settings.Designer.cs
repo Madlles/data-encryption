@@ -18,6 +18,9 @@ namespace GoodStuf.Properties
     {
 
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        internal string richTextBox1;
+        internal string bunifuTextBox1;
+        internal string bunifuTextBox2;
 
         public static Settings Default
         {
@@ -26,5 +29,7 @@ namespace GoodStuf.Properties
                 return defaultInstance;
             }
         }
+
+
     }
 }

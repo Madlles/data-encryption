@@ -58,6 +58,14 @@
     <Reference Include="Guna.UI">
       <HintPath>C:\Users\mf288\OneDrive\Рабочий стол\Guna.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.AudioVideoPlayback, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.AudioVideoPlayback.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Siticone.UI">
       <HintPath>C:\Users\mf288\OneDrive\Рабочий стол\Siticone.UI.dll</HintPath>
@@ -85,6 +93,12 @@
     <Compile Include="Encryption.Designer.cs">
       <DependentUpon>Encryption.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +111,12 @@
     <Compile Include="decryption_of_ciphers.Designer.cs">
       <DependentUpon>decryption_of_ciphers.cs</DependentUpon>
     </Compile>
+    <Compile Include="OwnEncryption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OwnEncryption.Designer.cs">
+      <DependentUpon>OwnEncryption.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs">
@@ -108,11 +128,17 @@
     <EmbeddedResource Include="Encryption.resx">
       <DependentUpon>Encryption.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="decryption_of_ciphers.resx">
       <DependentUpon>decryption_of_ciphers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OwnEncryption.resx">
+      <DependentUpon>OwnEncryption.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -172,6 +198,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\collapse_all_outline_icon_139749.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magic-wand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\research.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

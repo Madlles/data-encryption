@@ -143,6 +143,16 @@ namespace GoodStuf.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap magic_wand {
+            get {
+                object obj = ResourceManager.GetObject("magic-wand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Nebula__1920_x_1080_ {
             get {
                 object obj = ResourceManager.GetObject("Nebula (1920 x 1080)", resourceCulture);
@@ -156,6 +166,16 @@ namespace GoodStuf.Properties {
         internal static System.Drawing.Bitmap power_turn_icon_145947 {
             get {
                 object obj = ResourceManager.GetObject("power_turn_icon_145947", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap research {
+            get {
+                object obj = ResourceManager.GetObject("research", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
